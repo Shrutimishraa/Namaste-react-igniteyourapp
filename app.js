@@ -12,11 +12,13 @@ root.render(heading); // render method is resposible to take this object and put
  * </div>
  * ReactElement(object)=>HTML(Browser Understands)
  */
+import React from "react";
+import ReactDOM  from "react-dom/client";
 
 const parent = React.createElement("div",{id:"parent"}, // we will be no longer using react.createElement
 [React.createElement("div",{id:"child"},
-[React.createElement("h1",{},"I am h1 tag"),
-React.createElement("h2",{},"I am h2 tag")]),
+[React.createElement("h1",{},"I am react hii h1 "),
+React.createElement("h2",{},"I am h2 hii tag")]),
 
 React.createElement("div",{id:"child2"},
 [React.createElement("h1",{},"I am h1 tag"),
