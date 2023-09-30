@@ -1,30 +1,34 @@
-/*const heading = React.createElement("h1",
-    { id: "heading" },
-    "Hello from react!"); // heading is object
-    console.log(heading); // object
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading); // render method is resposible to take this object and put it up means convert it into heading tag and put it up into DOM.
-/**<div id="parent">
- *      <div id="child">
- *      <h1>I am h1 tag</h1>
- *      <h2>I am h2 tag</h2>
- *      </div>
- * </div>
- * ReactElement(object)=>HTML(Browser Understands)
- */
 import React from "react";
 import ReactDOM  from "react-dom/client";
+//React.createlement => ReacrElement => Js object => Htmlelement(render)-Won't using this ever
+const heading = React.createElement("h1",
+{id:"heading"},"Namaste React from react ");
+console.log(heading);
 
-const parent = React.createElement("div",{id:"parent"}, // we will be no longer using react.createElement
-[React.createElement("div",{id:"child"},
-[React.createElement("h1",{},"I am react hii h1 "),
-React.createElement("h2",{},"I am h2 hii tag")]),
-
-React.createElement("div",{id:"child2"},
-[React.createElement("h1",{},"I am h1 tag"),
-React.createElement("h2",{},"I am h2 tag")])]); //jsx is solution for this mess
-console.log(parent); 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
-// the tags inside root is getting replaced (not appended )by parent using render method 
-//react can only be written inside jsx ? no, jsx will make our life easy when will make tags with react .the core react can be without jsx as well .
+//JSX-HTML-LIKE OR XML LIKE SYNTAX
+//JSX(transpiled before it reaches the JS)-Parcel-Babel(opensource online JS compiler)
+//JSX=>REact.createElement=>ReactElement-JS Object=>HTMLElemnt(render)
+const jsxHeading = <h1 id="heading">Nmaste react using JSX</h1>;
+//to give attribute in JSX use camelcase-explore all the tags,attributes
+console.log(jsxHeading);
+//functional component -return react element
+const HeadingComponent1=()=>{
+    return <h1> Namaste react functional component1</h1>;
+};
+//component inside component-known as component composition
+const number = 1000;
+const HeadingComponent2=()=>(
+    <div id="container">
+        <HeadingComponent1 />
+        {HeadingComponent1()}
+       <h2>{number}</h2> {number}
+       <h3>{100+200}</h3> 
+       <h4>{console.log("we can write js in jsx by using curly braces")}</h4>
+       <h1 className="heading"> Namaste react functional component2</h1>
+    </div>
+);
+const fn1=()=>true;
+const fn2=()=>{return true;};
+const root =ReactDOM.createRoot(document.getElementById("root"));
+//root.render(jsxHeading);
+root.render(<HeadingComponent2/>);
